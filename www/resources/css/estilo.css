@@ -1,0 +1,52 @@
+body
+{
+  background-color: #2E2E2E;
+}
+
+/* Estilos painel-user*/
+.container-user
+{
+  margin: 20px 60px 0px 60px;
+}
+
+#content-main, .card
+{
+  border:none!important;
+}
+
+#table-user
+{
+  border-radius: 5px;  
+}
+
+th
+{
+  background-color: #6E6E6E;
+}
+
+#div-painel-user
+{
+  margin-top: 20px;
+}
+
+/* Estilos footer */
+.logo
+{
+  width: 160px;
+  height: 80px;
+}
+
+#footer
+{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.seguranca
+{
+  width: 240px;
+  height: 90px;
+}
