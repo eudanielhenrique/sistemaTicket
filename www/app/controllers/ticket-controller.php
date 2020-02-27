@@ -10,8 +10,8 @@
         $action = new Actions();
 
         $action->renderiza_ticket();
-      }
-           
+      }    
+
     $id = $_SESSION['id'];
     $model = new UserModel();
     
@@ -64,10 +64,16 @@
       $desc = $_POST['motivo'];
 
       $atual = new DateTime();
-      $a = $atual->format('Y-m-d H:i:s'); 
+      $a = $atual->format('Y-m-d H:i:s');
       
-      $modelTicket->insert_ticket($id_user, $id_list, $id_product, $desc, $a);
+      require_once ABSPATH.'/class/class-Actions.php';
+      $action = new Actions();
       
+      if($modelTicket->insert_ticket($id_user, $id_list, $id_product, $desc, $a)){
+        return $action->ticket_cadastrado();
+      }else{
+        $action->erro_ao_cadastrar();
+      }      
     }
 
   }//Class

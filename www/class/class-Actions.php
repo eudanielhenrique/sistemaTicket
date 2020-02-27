@@ -24,8 +24,7 @@
             require_once ABSPATH.'/app/controllers/admin-controller.php';
             $admin_controller = new AdminController();
             return $admin_controller->index();
-          }        
-         
+          }
 
         }else{
           return $this->acesso_nao_permitido();
@@ -55,6 +54,9 @@
     }
   }
 
+  /* Painel admin */
+  
+
   public function acesso_nao_permitido(){
     echo "<meta http-equiv='refresh' content='0;URL=index.php'/>
 
@@ -69,6 +71,38 @@
     require ABSPATH.'/app/models/UserModel.php';
 
     require ABSPATH.'/resources/views/includes/header.php';     
+  }
+
+  public function renderiza_painel_admin()
+  {
+    require_once ABSPATH.'/lib/View.php';
+    require_once ABSPATH.'/app/models/AdminModel.php';
+
+         
+  }
+
+  public function ticket_cadastrado(){
+    echo "<meta http-equiv='refresh' content='0;URL=../ticket&acao=1'/>
+
+            <script type=\"text/javascript\">
+            alert(\"Ticket cadastrado com sucesso ;)\");
+            </script> ";
+  }
+
+  public function erro_ao_cadastrar(){
+    echo "<meta http-equiv='refresh' content='0;URL=../ticket&acao=1'/>
+
+            <script type=\"text/javascript\">
+            alert(\"Erro ao cadastrar Ticket\");
+            </script> ";
+  }
+
+  public function alterar_status() {
+    echo "<meta http-equiv='refresh' content='0;URL=../../index.php'/>
+
+            <script type=\"text/javascript\">
+            alert(\"Status alterado com sucesso\");
+            </script> ";
   }
 }
 

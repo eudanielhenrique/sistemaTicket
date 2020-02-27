@@ -9,7 +9,7 @@
   $andamento = $params['andamento'];
   $fechados = $params['fechados']; 
   $tickets = $params['tickets'];
-
+  
 ?>
 
 
@@ -47,7 +47,9 @@
     <div class="card text-white bg-warning mb-3">     
       <div class="card-body">
         <h5 class="card-title">Total de tickets fechados</h5>
-        <p class="card-text">Consultar seus tickets fechados</p>
+        <a href="admin/tickets">
+          <p class="card-text">Consultar seus tickets fechados</p>
+        </a>        
         
       </div>
     </div>
@@ -64,8 +66,8 @@
             <th scope="col">Categoria do ticket</th>
             <th scope="col">Descrição do cliente</th>
             <th scope="col">Data da abertura</th> 
-            <th scope="col">Responsável</th>                  
             <th scope="col">Status</th>
+            <th scope="col">Ação</th>
           </tr>
         </thead>
         <tbody>            
@@ -76,9 +78,17 @@
                 <td><?php echo $item['name_product']; ?></td>
                 <td><?php echo $item['name_ticket']; ?></td>
                 <td><?php echo $item['descr']; ?></td>
-                <td><?php echo $item['data_ticket']; ?></td>
-                <td><?php echo ucfirst($item['name_user']); ?></td>
+                <td><?php echo $item['data_ticket']; ?></td>                
                 <td><?php echo $item['name_status']; ?></td>
+                <td>           
+
+                  <?php
+                    echo (($item['id_status'] == 2) ? 
+                        '<a href="admin/fechar&id='.$item['id'].'"> <button type="button" class="btn btn-primary">fechar</button> </a>' : 
+                        '<a href="admin/tratamento&id='.$item['id'].'"> <button type="button" class="btn btn-success">dar tratamento</button> </a>');
+                  ?>
+
+                </td>
               </tr>
             <?php
             }

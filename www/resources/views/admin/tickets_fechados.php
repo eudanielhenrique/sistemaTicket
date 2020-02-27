@@ -6,50 +6,43 @@
   $action = new Actions();
 
   $params = $this->getParams();
-  $pedidos = $params['pedidos'];   
+  $tickets = $params['tickets'];   
   
 ?>
 
 <div class="card text-center align-items-center">
-  <h2>Meus Pedidos</h2>
+  <h2>Seus tickets fechados</h2>
 
   <div class="row" id="div-painel-user">
     <div class="col">
       <table class="table table-sm table-bordered">
         <thead>
-          <tr>
-            <th scope="col">id</th>
+          <tr>            
             <th scope="col">Produto</th>
-            <th scope="col">Quantidade</th>
-            <th scope="col">Valor</th>
-            <th scope="col">Data da compra</th>
-            <th scope="col">Data do recebimento</th>            
+            <th scope="col">Descrição do ticket</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Data de fechamento</th>          
           </tr>
         </thead>
         <tbody>
           
           <?php
-            foreach($pedidos as $item){
+            foreach($tickets as $item){
               ?>
               <tr>
-                <td>
-                  <?php echo $item['id']; ?>
-                </td>
                 <td>
                   <?php echo $item['name_product']; ?>
                 </td>
                 <td>
-                  <?php echo $item['amount']; ?>
+                  <?php echo $item['descr']; ?>
                 </td>
                 <td>
-                  <?php echo 'R$: '.number_format($item['value_product'],2,",","."); ?>
-                </td>
+                  <?php echo $item['name_ticket']; ?>
+                </td>                
                 <td>
-                  <?php echo date("d/m/Y", strtotime($item['date_request'])); ?>
-                </td>              
-                <td>
-                  <?php echo date("d/m/Y", strtotime($item['date_delivery'])); ?>
-                </td>
+                  <?php echo date("d/m/Y", strtotime($item['data_fec'])); ?>
+                </td>            
+                
               </tr>
               <?php
             }
@@ -60,9 +53,8 @@
     </div>
   </div>
 
-  <a href="../ticket&acao=1">
+  <a href="../index.php">
     <button type="button" class="btn btn-info">Voltar</button>    
-  </a>
-  
+  </a>  
   
 </div>

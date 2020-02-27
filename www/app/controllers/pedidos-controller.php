@@ -16,13 +16,11 @@
 
       $view->setParams(array('pedidos' => $pedidos));
       $view->showContents();
+    }   
 
+    public function teste(){
+      echo 'clicou em sair';
     }
-
-    public function teste() {
-      return $this->index();
-    }
-   
   }//Class
 
 ?>

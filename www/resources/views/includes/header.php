@@ -16,7 +16,19 @@
       <div class="card" id="frame_up">
         <div class="card-header" id="content-header">
           <img class="logo" src="<?php echo HOME_IMG.'/logo1.png'; ?>">
-        </div>        
+
+          <?php 
+            if(isset($_SESSION['id']) && isset($_SESSION['name_user'])){ ?>
+              <div style="float:right;margin-right: 80px; margin-top: 20px;">            
+                <a href="home/logout">
+                  <i class="fas fa-sign-out-alt fa-2x"></i>
+                </a> 
+                <p>Sair</p>           
+              </div>
+            <?php
+            }
+          ?>
+        </div>                
       </div> 
      </div>
 

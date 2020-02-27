@@ -17,6 +17,21 @@ class HomeController extends LoadModel
     $view = new View(ABSPATH.'/resources/views/login.php');    
     $view->showContents();    
   } 
+
+  public function teste() {
+    echo 'entrou no teste';
+  }
+
+  public function logout()
+  {	
+    unset ($_SESSION['id']);
+    unset ($_SESSION['email']);
+    unset ($_SESSION['name_user']);
+    unset ($_SESSION['id_type_user']);
+    
+    session_destroy(); //LIMPA O ARRAY SESSION    
+    header ('Location:/home');
+  }
 }
 
 ?>
