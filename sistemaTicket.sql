@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Tempo de geração: 27-Fev-2020 às 04:55
--- Versão do servidor: 8.0.18
--- versão do PHP: 7.2.23
+-- Tempo de geração: 27/02/2020 às 18:36
+-- Versão do servidor: 8.0.19
+-- Versão do PHP: 7.2.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,22 +19,22 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `teste`
+-- Banco de dados: `sistemaTicket`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `category`
+-- Estrutura para tabela `category`
 --
 
 CREATE TABLE `category` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name_category` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Extraindo dados da tabela `category`
+-- Despejando dados para a tabela `category`
 --
 
 INSERT INTO `category` (`id`, `name_category`) VALUES
@@ -46,16 +46,16 @@ INSERT INTO `category` (`id`, `name_category`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `colors`
+-- Estrutura para tabela `colors`
 --
 
 CREATE TABLE `colors` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name_color` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Extraindo dados da tabela `colors`
+-- Despejando dados para a tabela `colors`
 --
 
 INSERT INTO `colors` (`id`, `name_color`) VALUES
@@ -67,17 +67,17 @@ INSERT INTO `colors` (`id`, `name_color`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `department`
+-- Estrutura para tabela `department`
 --
 
 CREATE TABLE `department` (
-  `id` int(11) NOT NULL,
-  `id_cat` int(11) NOT NULL,
+  `id` int NOT NULL,
+  `id_cat` int NOT NULL,
   `name_depar` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Extraindo dados da tabela `department`
+-- Despejando dados para a tabela `department`
 --
 
 INSERT INTO `department` (`id`, `id_cat`, `name_depar`) VALUES
@@ -89,16 +89,16 @@ INSERT INTO `department` (`id`, `id_cat`, `name_depar`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `form_payment`
+-- Estrutura para tabela `form_payment`
 --
 
 CREATE TABLE `form_payment` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name_form` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Extraindo dados da tabela `form_payment`
+-- Despejando dados para a tabela `form_payment`
 --
 
 INSERT INTO `form_payment` (`id`, `name_form`) VALUES
@@ -110,20 +110,20 @@ INSERT INTO `form_payment` (`id`, `name_form`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `info`
+-- Estrutura para tabela `info`
 --
 
 CREATE TABLE `info` (
-  `id` int(11) NOT NULL,
-  `id_color` int(5) NOT NULL,
-  `id_material` int(5) NOT NULL,
-  `garantia` int(5) NOT NULL,
-  `largura` int(5) NOT NULL,
-  `altura` int(5) NOT NULL
+  `id` int NOT NULL,
+  `id_color` int NOT NULL,
+  `id_material` int NOT NULL,
+  `garantia` int NOT NULL,
+  `largura` int NOT NULL,
+  `altura` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Extraindo dados da tabela `info`
+-- Despejando dados para a tabela `info`
 --
 
 INSERT INTO `info` (`id`, `id_color`, `id_material`, `garantia`, `largura`, `altura`) VALUES
@@ -139,16 +139,16 @@ INSERT INTO `info` (`id`, `id_color`, `id_material`, `garantia`, `largura`, `alt
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `list_ticket`
+-- Estrutura para tabela `list_ticket`
 --
 
 CREATE TABLE `list_ticket` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name_ticket` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Extraindo dados da tabela `list_ticket`
+-- Despejando dados para a tabela `list_ticket`
 --
 
 INSERT INTO `list_ticket` (`id`, `name_ticket`) VALUES
@@ -161,16 +161,16 @@ INSERT INTO `list_ticket` (`id`, `name_ticket`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `materials`
+-- Estrutura para tabela `materials`
 --
 
 CREATE TABLE `materials` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name_material` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Extraindo dados da tabela `materials`
+-- Despejando dados para a tabela `materials`
 --
 
 INSERT INTO `materials` (`id`, `name_material`) VALUES
@@ -180,20 +180,20 @@ INSERT INTO `materials` (`id`, `name_material`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `payment`
+-- Estrutura para tabela `payment`
 --
 
 CREATE TABLE `payment` (
-  `id` int(11) NOT NULL,
-  `id_form` int(11) NOT NULL,
-  `id_sale` int(11) NOT NULL,
-  `amount_parc` int(5) NOT NULL,
+  `id` int NOT NULL,
+  `id_form` int NOT NULL,
+  `id_sale` int NOT NULL,
+  `amount_parc` int NOT NULL,
   `value_parc` decimal(5,2) NOT NULL,
   `total` decimal(5,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Extraindo dados da tabela `payment`
+-- Despejando dados para a tabela `payment`
 --
 
 INSERT INTO `payment` (`id`, `id_form`, `id_sale`, `amount_parc`, `value_parc`, `total`) VALUES
@@ -208,16 +208,16 @@ INSERT INTO `payment` (`id`, `id_form`, `id_sale`, `amount_parc`, `value_parc`, 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `problemDescription`
+-- Estrutura para tabela `problemDescription`
 --
 
 CREATE TABLE `problemDescription` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `description` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Extraindo dados da tabela `problemDescription`
+-- Despejando dados para a tabela `problemDescription`
 --
 
 INSERT INTO `problemDescription` (`id`, `description`) VALUES
@@ -226,20 +226,20 @@ INSERT INTO `problemDescription` (`id`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `products`
+-- Estrutura para tabela `products`
 --
 
 CREATE TABLE `products` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name_product` varchar(60) NOT NULL,
   `value_product` decimal(5,2) NOT NULL,
-  `stock` int(20) NOT NULL,
-  `id_depar` int(11) NOT NULL,
-  `id_info` int(11) NOT NULL
+  `stock` int NOT NULL,
+  `id_depar` int NOT NULL,
+  `id_info` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Extraindo dados da tabela `products`
+-- Despejando dados para a tabela `products`
 --
 
 INSERT INTO `products` (`id`, `name_product`, `value_product`, `stock`, `id_depar`, `id_info`) VALUES
@@ -256,20 +256,20 @@ INSERT INTO `products` (`id`, `name_product`, `value_product`, `stock`, `id_depa
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `sales`
+-- Estrutura para tabela `sales`
 --
 
 CREATE TABLE `sales` (
-  `id` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `id_product` int(11) NOT NULL,
-  `amount` int(5) NOT NULL,
+  `id` int NOT NULL,
+  `id_user` int NOT NULL,
+  `id_product` int NOT NULL,
+  `amount` int NOT NULL,
   `date_request` date DEFAULT NULL,
   `date_delivery` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Extraindo dados da tabela `sales`
+-- Despejando dados para a tabela `sales`
 --
 
 INSERT INTO `sales` (`id`, `id_user`, `id_product`, `amount`, `date_request`, `date_delivery`) VALUES
@@ -287,16 +287,16 @@ INSERT INTO `sales` (`id`, `id_user`, `id_product`, `amount`, `date_request`, `d
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `status`
+-- Estrutura para tabela `status`
 --
 
 CREATE TABLE `status` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name_status` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Extraindo dados da tabela `status`
+-- Despejando dados para a tabela `status`
 --
 
 INSERT INTO `status` (`id`, `name_status`) VALUES
@@ -307,43 +307,55 @@ INSERT INTO `status` (`id`, `name_status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `ticket`
+-- Estrutura para tabela `ticket`
 --
 
 CREATE TABLE `ticket` (
-  `id` int(5) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `id_list_ticket` int(5) NOT NULL,
-  `id_product` int(11) NOT NULL,
+  `id` int NOT NULL,
+  `id_user` int NOT NULL,
+  `id_list_ticket` int NOT NULL,
+  `id_product` int NOT NULL,
   `descr` varchar(40) NOT NULL,
-  `id_status` int(5) NOT NULL,
+  `id_status` int NOT NULL,
   `data_ticket` date DEFAULT NULL,
   `data_fec` date DEFAULT NULL,
-  `resp` int(5) DEFAULT NULL
+  `resp` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Extraindo dados da tabela `ticket`
+-- Despejando dados para a tabela `ticket`
 --
 
 INSERT INTO `ticket` (`id`, `id_user`, `id_list_ticket`, `id_product`, `descr`, `id_status`, `data_ticket`, `data_fec`, `resp`) VALUES
 (5, 1, 4, 42, 'Cor_do_produto_e_diferente_do_pedido', 1, '2020-02-26', NULL, 7),
-(6, 1, 5, 42, 'Sem_o_suporte_de_TV', 2, '2020-02-26', NULL, 7),
-(7, 1, 3, 42, 'Produto_com_arranhoes', 3, '2020-02-26', '2020-03-20', 7);
+(6, 1, 5, 42, 'Sem_o_suporte_de_TV', 3, '2020-02-26', NULL, 7),
+(7, 1, 3, 42, 'Produto_com_arranhoes', 3, '2020-02-26', '2020-03-20', 7),
+(8, 1, 3, 46, 'Gaveta_quebrada', 3, '2020-02-27', NULL, 7),
+(9, 1, 3, 49, 'Roda_da_cadeira_quebrada', 3, '2020-02-27', '2020-02-27', 7),
+(10, 1, 2, 44, 'Ja_passou_3_dias_do_prazo', 2, '2020-02-27', NULL, 7),
+(11, 1, 4, 45, 'Colchao_diferente_do_pedido', 1, '2020-02-27', NULL, NULL),
+(12, 1, 2, 49, 'Ja_passou_3_dias_do_prazo', 2, '2020-02-27', NULL, 7),
+(13, 1, 3, 49, 'Teste', 1, '2020-02-27', NULL, NULL),
+(14, 1, 3, 42, 'Teste', 1, '2020-02-27', NULL, NULL),
+(15, 1, 3, 49, 'Teste', 1, '2020-02-27', NULL, NULL),
+(16, 1, 4, 46, 'Teste', 1, '2020-02-27', NULL, NULL),
+(17, 1, 2, 45, 'Teste', 2, '2020-02-27', NULL, 7),
+(18, 1, 2, 45, 'Teste', 2, '2020-02-27', NULL, 7),
+(19, 1, 1, 45, 'Teste', 3, '2020-02-27', NULL, 7);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `type_users`
+-- Estrutura para tabela `type_users`
 --
 
 CREATE TABLE `type_users` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name_type` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Extraindo dados da tabela `type_users`
+-- Despejando dados para a tabela `type_users`
 --
 
 INSERT INTO `type_users` (`id`, `name_type`) VALUES
@@ -353,19 +365,19 @@ INSERT INTO `type_users` (`id`, `name_type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `users`
+-- Estrutura para tabela `users`
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name_user` varchar(40) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `id_type_user` int(5) NOT NULL,
+  `id_type_user` int NOT NULL,
   `password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Extraindo dados da tabela `users`
+-- Despejando dados para a tabela `users`
 --
 
 INSERT INTO `users` (`id`, `name_user`, `email`, `id_type_user`, `password`) VALUES
@@ -378,36 +390,36 @@ INSERT INTO `users` (`id`, `name_user`, `email`, `id_type_user`, `password`) VAL
 (7, 'paulo henrique', 'admin@teste.com', 2, '123456');
 
 --
--- Índices para tabelas despejadas
+-- Índices de tabelas apagadas
 --
 
 --
--- Índices para tabela `category`
+-- Índices de tabela `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `colors`
+-- Índices de tabela `colors`
 --
 ALTER TABLE `colors`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `department`
+-- Índices de tabela `department`
 --
 ALTER TABLE `department`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_cat` (`id_cat`);
 
 --
--- Índices para tabela `form_payment`
+-- Índices de tabela `form_payment`
 --
 ALTER TABLE `form_payment`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `info`
+-- Índices de tabela `info`
 --
 ALTER TABLE `info`
   ADD PRIMARY KEY (`id`),
@@ -415,19 +427,19 @@ ALTER TABLE `info`
   ADD KEY `id_material` (`id_material`);
 
 --
--- Índices para tabela `list_ticket`
+-- Índices de tabela `list_ticket`
 --
 ALTER TABLE `list_ticket`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `materials`
+-- Índices de tabela `materials`
 --
 ALTER TABLE `materials`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `payment`
+-- Índices de tabela `payment`
 --
 ALTER TABLE `payment`
   ADD PRIMARY KEY (`id`),
@@ -435,19 +447,19 @@ ALTER TABLE `payment`
   ADD KEY `id_sale` (`id_sale`);
 
 --
--- Índices para tabela `problemDescription`
+-- Índices de tabela `problemDescription`
 --
 ALTER TABLE `problemDescription`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `products`
+-- Índices de tabela `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `sales`
+-- Índices de tabela `sales`
 --
 ALTER TABLE `sales`
   ADD PRIMARY KEY (`id`),
@@ -455,13 +467,13 @@ ALTER TABLE `sales`
   ADD KEY `id_product` (`id_product`);
 
 --
--- Índices para tabela `status`
+-- Índices de tabela `status`
 --
 ALTER TABLE `status`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `ticket`
+-- Índices de tabela `ticket`
 --
 ALTER TABLE `ticket`
   ADD PRIMARY KEY (`id`),
@@ -472,91 +484,91 @@ ALTER TABLE `ticket`
   ADD KEY `resp` (`resp`);
 
 --
--- Índices para tabela `type_users`
+-- Índices de tabela `type_users`
 --
 ALTER TABLE `type_users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `users`
+-- Índices de tabela `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_type_user` (`id_type_user`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT de tabelas apagadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `form_payment`
 --
 ALTER TABLE `form_payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `list_ticket`
 --
 ALTER TABLE `list_ticket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `problemDescription`
 --
 ALTER TABLE `problemDescription`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de tabela `type_users`
 --
 ALTER TABLE `type_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Restrições para despejos de tabelas
+-- Restrições para dumps de tabelas
 --
 
 --
--- Limitadores para a tabela `department`
+-- Restrições para tabelas `department`
 --
 ALTER TABLE `department`
   ADD CONSTRAINT `department_ibfk_1` FOREIGN KEY (`id_cat`) REFERENCES `category` (`id`);
 
 --
--- Limitadores para a tabela `info`
+-- Restrições para tabelas `info`
 --
 ALTER TABLE `info`
   ADD CONSTRAINT `info_ibfk_1` FOREIGN KEY (`id_color`) REFERENCES `colors` (`id`),
   ADD CONSTRAINT `info_ibfk_2` FOREIGN KEY (`id_material`) REFERENCES `materials` (`id`);
 
 --
--- Limitadores para a tabela `payment`
+-- Restrições para tabelas `payment`
 --
 ALTER TABLE `payment`
   ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`id_form`) REFERENCES `form_payment` (`id`),
   ADD CONSTRAINT `payment_ibfk_2` FOREIGN KEY (`id_sale`) REFERENCES `sales` (`id`);
 
 --
--- Limitadores para a tabela `sales`
+-- Restrições para tabelas `sales`
 --
 ALTER TABLE `sales`
   ADD CONSTRAINT `sales_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `sales_ibfk_2` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`);
 
 --
--- Limitadores para a tabela `ticket`
+-- Restrições para tabelas `ticket`
 --
 ALTER TABLE `ticket`
   ADD CONSTRAINT `ticket_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`),
@@ -566,7 +578,7 @@ ALTER TABLE `ticket`
   ADD CONSTRAINT `ticket_ibfk_5` FOREIGN KEY (`resp`) REFERENCES `users` (`id`);
 
 --
--- Limitadores para a tabela `users`
+-- Restrições para tabelas `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id_type_user`) REFERENCES `type_users` (`id`);
