@@ -13,8 +13,10 @@
   $tickets_solucionados = (($params['solucionados'] == false) ? 0 : $params['solucionados']);
   
 ?>
+
 <div class="card text-center align-items-center">
-<div class="row">
+  <div class="row">
+
     <div class="col-3">
       <div class="list-group" id="list-tab" role="tablist">
         <a class="list-group-item list-group-item-action active" name="pedidos" id="list-home-list" data-toggle="list" href="pedidos/index" role="tab" aria-controls="home">
@@ -22,15 +24,10 @@
         </a>
         <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="ticket/store" role="tab" aria-controls="profile">
           <i class="fa fa-ticket" aria-hidden="true"> Abrir ticket</i>
-        </a>
-        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">
-          <i class="fas fa-redo-alt"> Editar meus dados </i>
-        </a>
-        <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">
-          <i class="fas fa-barcode"> Segunda via de boleto </i>
-        </a>        
+        </a>             
       </div>
     </div>
+
     <div class="col-9" id="container-mail">
       <div class="card-group">
         <div class="card-deck">
@@ -68,9 +65,9 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>  <!-- Final da Row -->
   
-  <h1>Meus Tickets</h1>
+  <h2>Seus Tickets <?php echo ucfirst($_SESSION['name_user']); ?> </h2>
   <div class="row" id="div-painel-user">
     <div class="col">
       <table class="table table-sm table-bordered" id="table-user">
@@ -104,10 +101,14 @@
                     <?php echo $item['descr']; ?>
                   </td>
                   <td>
-                    <?php echo $item['data_ticket']; ?>
+                    <?php echo (($item['data_ticket'] == null) ? '----' : 
+                        date("d/m/Y", strtotime($item['data_ticket']))); 
+                    ?>
                   </td>
                   <td>
-                    <?php echo (($item['data_fec'] == null) ? '----' : $item['data_fec']) ?>
+                    <?php echo (($item['data_fec'] == null) ? '----' : 
+                        date("d/m/Y", strtotime($item['data_fec']))); 
+                    ?>
                   </td>
                   <td>
                     <?php echo $item['name_status']; ?>

@@ -3,10 +3,18 @@ body
   background-color: #2E2E2E;
 }
 
+/* Header */
+
+#frame_up
+{
+  margin-bottom: 20px;;
+}
+
 /* Estilos painel-user*/
+
 .container-user
 {
-  margin: 20px 60px 0px 60px;
+  margin: 20px 40px 0px 40px;  
 }
 
 #content-main, .card
@@ -16,7 +24,7 @@ body
 
 #table-user
 {
-  border-radius: 5px;  
+  border-radius: 5px;    
 }
 
 th
@@ -49,4 +57,11 @@ th
 {
   width: 240px;
   height: 90px;
+}
+
+/* admin */
+
+#cards-painel-admin
+{  
+  margin: 10px 60px 10px 60px;
 }

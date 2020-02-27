@@ -16,11 +16,7 @@ class HomeController extends LoadModel
     
     $view = new View(ABSPATH.'/resources/views/login.php');    
     $view->showContents();    
-  }
-
-  public function teste() {
-    echo 'esta na controller home';
-  }
+  } 
 }
 
 ?>

@@ -13,6 +13,10 @@ define( 'HOME_URI', 'localhost:8001' );
 // Nome do host da base de dados
 define( 'HOSTNAME', 'localhost' );
 
+define( 'HOME_FILE', 'resources/css/estilo.css' );
+
+define ( 'HOME_IMG', 'resources/image' );
+
 
 // Se você estiver desenvolvendo, modifique o valor para true
 define( 'DEBUG', true );

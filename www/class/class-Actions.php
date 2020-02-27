@@ -10,11 +10,22 @@
         $email = ($_POST['email'] != '') ? addslashes($_POST['email']) : false;
         $password = ($_POST['password'] != '') ? addslashes($_POST['password']) : false; 
         
+        //User
         if($this->consulta_login($email, $password) == true){
 
-          require_once ABSPATH.'/app/controllers/ticket-controller.php';
-          $ticket = new TicketController();
-          return $ticket->index();
+          if($_SESSION['id_type_user'] == 1){
+            require_once ABSPATH.'/app/controllers/ticket-controller.php';
+            $ticket = new TicketController();
+            return $ticket->index();
+          } 
+          
+          //Admin
+          else{
+            require_once ABSPATH.'/app/controllers/admin-controller.php';
+            $admin_controller = new AdminController();
+            return $admin_controller->index();
+          }        
+         
 
         }else{
           return $this->acesso_nao_permitido();

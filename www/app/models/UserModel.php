@@ -28,6 +28,7 @@
         $_SESSION['id'] = $dados['id'];
         $_SESSION['email'] = $dados['email'];
         $_SESSION['name_user'] = $dados['name_user'];
+        $_SESSION['id_type_user'] = $dados['id_type_user'];
 
         return true;
       }else{
@@ -39,17 +40,14 @@
     public function sales($id_user)
     {      
       $sql = "SELECT 
-        pay.id,
+        s.id,
         prod.name_product,
         s.amount,
-        pay.total,
+        prod.value_product,
         s.date_request,
         s.date_delivery
 
-        FROM payment as pay
-
-        INNER JOIN sales as s
-        ON (s.id = pay.id_sale)
+        FROM sales as s
 
         INNER JOIN products as prod
         ON (prod.id = s.id_product)
@@ -71,6 +69,7 @@
         return false;
       }
     }
+
 
     public function tickets($id_user)
     {
